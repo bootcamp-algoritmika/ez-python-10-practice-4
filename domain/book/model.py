@@ -1,9 +1,11 @@
+from datetime import datetime
+
 from domain.book.exceptions import BookIsBusyException
 
 
 class Book:
     def __init__(self, name: str, author: str, year: int,
-                 created_date: str, modified_date: str = None, id: int = None, owner: str = None):
+                 created_date: str = datetime.strftime(datetime.utcnow(), "%s"), modified_date: str = None, id: int = None, owner: str = None):
         self.id: int = id
         self.owner: str = owner
         self.name: str = name
